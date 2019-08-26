@@ -1,0 +1,68 @@
+/* Первая строка каждого элемента <p>. */
+p::first-letter {
+  color: blue;
+  text-transform: uppercase;
+   font-size: 230%;
+
+}
+p::before {
+
+	content: "*";
+	color: red;
+	font-size: 200%;
+}
+
+q::before {
+	content: "<<";
+	color: red;
+	font-size: 200%;
+
+}
+
+q::after {
+	content: ">>";
+	color: yellow;
+	font-size: 200%;
+}
+
+li {
+  list-style-type: none;
+
+ content: "*";
+  background: yellow;
+  font-family: tahoma;
+}
+
+li::before {
+ 
+
+ content: "*";
+
+}
+
+
+li.done {
+  background: #CCFF99;
+}
+
+
+li.done::before {
+  content: '';
+  position: absolute;
+  border-color: #009933;
+  border-style: solid;
+  border-width: 0 0.3em 0.25em 0;
+  height: 1em;
+  top: 1.3em;
+  left: 0.6em;
+  margin-top: -1em;
+  transform: rotate(45deg);
+  width: 0.5em;
+}
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if( ev.target.tagName === 'LI') {
+     ev.target.classList.toggle('done'); 
+  }
+}, false);
